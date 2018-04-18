@@ -1,0 +1,47 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.example.events"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="15" />
+
+    <application
+        android:icon="@drawable/golf_icon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".displayData"
+            android:label="Display Data">
+            
+        </activity>
+        <activity android:name=".enterData"
+            android:label="Enter Data">
+        </activity>
+        
+        <activity android:name=".clubTracker"
+            android:label="Club Tracker">
+            
+        </activity>
+       
+        <activity android:name=".Options"
+            android:label="@string/options_label">
+        </activity>
+        
+        <activity android:name=".Info"
+            android:label="@string/info_label"
+            android:theme="@android:style/Theme.Dialog">
+            
+        </activity>
+    </application>
+
+</manifest>
