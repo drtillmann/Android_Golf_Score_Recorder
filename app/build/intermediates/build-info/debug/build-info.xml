@@ -5,9 +5,10 @@
     build-mode="COLD"
     density="xxxhdpi"
     format="10"
+    ir-eligibility="COMPATIBLE"
     plugin-version="3.1.0"
-    timestamp="1524007240961"
-    token="-1225702845614113436"
+    timestamp="1524101709388"
+    token="-8077886006456322395"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
@@ -18,67 +19,78 @@
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="28" />
     <task
         name="verifier"
-        duration="0" />
+        duration="6" />
+
+    <artifact
+        location="F:\School\FINAL-ForSE470\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+        type="SPLIT" />
+    <artifact
+        location="F:\School\FINAL-ForSE470\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
+        type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1524001723730"
+        timestamp="1524100452277"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="F:\School\FINAL- ForSE470\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
+            location="F:\School\FINAL-ForSE470\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
             type="SPLIT" />
         <artifact
-            location="F:\School\FINAL- ForSE470\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            location="F:\School\FINAL-ForSE470\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
         <artifact
-            location="F:\School\FINAL- ForSE470\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+            location="F:\School\FINAL-ForSE470\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
             type="SPLIT" />
         <artifact
-            location="F:\School\FINAL- ForSE470\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+            location="F:\School\FINAL-ForSE470\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
             type="SPLIT" />
         <artifact
-            location="F:\School\FINAL- ForSE470\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
+            location="F:\School\FINAL-ForSE470\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
             type="SPLIT" />
         <artifact
-            location="F:\School\FINAL- ForSE470\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
+            location="F:\School\FINAL-ForSE470\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
         <artifact
-            location="F:\School\FINAL- ForSE470\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
+            location="F:\School\FINAL-ForSE470\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
             type="SPLIT" />
         <artifact
-            location="F:\School\FINAL- ForSE470\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
+            location="F:\School\FINAL-ForSE470\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
             type="SPLIT" />
         <artifact
-            location="F:\School\FINAL- ForSE470\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
+            location="F:\School\FINAL-ForSE470\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
             type="SPLIT" />
         <artifact
-            location="F:\School\FINAL- ForSE470\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+            location="F:\School\FINAL-ForSE470\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
             type="SPLIT" />
         <artifact
-            location="F:\School\FINAL- ForSE470\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            location="F:\School\FINAL-ForSE470\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
             type="SPLIT" />
         <artifact
-            location="F:\School\FINAL- ForSE470\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
+            location="F:\School\FINAL-ForSE470\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
+            type="SPLIT_MAIN" />
+    </build>
+    <build
+        build-mode="COLD"
+        timestamp="1524101203145"
+        verifier="METHOD_DELETED" >
+        <artifact
+            location="F:\School\FINAL-ForSE470\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
             type="SPLIT_MAIN" />
     </build>
     <build
         build-mode="COLD"
         ir-eligibility="COMPATIBLE"
-        timestamp="1524004488833"
+        timestamp="1524101709388"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
-            location="F:\School\FINAL- ForSE470\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            location="F:\School\FINAL-ForSE470\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
             type="SPLIT" />
         <artifact
-            location="F:\School\FINAL- ForSE470\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
+            location="F:\School\FINAL-ForSE470\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
             type="SPLIT_MAIN" />
     </build>
-    <build
-        build-mode="COLD"
-        timestamp="1524007240961"
-        verifier="COLD_SWAP_REQUESTED" />
 
 </instant-run>

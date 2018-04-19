@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "F:\\School\\FINAL- ForSE470\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v11\\values-v11.xml",
+            "outputFile": "F:\\School\\FINAL-ForSE470\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v11\\values-v11.xml",
             "map": [
                 {
-                    "source": "F:\\School\\FINAL- ForSE470\\app\\src\\main\\res\\values-v11\\styles.xml",
+                    "source": "F:\\School\\FINAL-ForSE470\\app\\src\\main\\res\\values-v11\\styles.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

@@ -1,32 +1,49 @@
 {
     "logs": [
         {
-            "outputFile": "F:\\School\\FINAL- ForSE470\\app\\build\\intermediates\\res\\merged\\debug\\values-v11_values-v11.arsc.flat",
+            "outputFile": "F:\\School\\FINAL-ForSE470\\app\\build\\intermediates\\res\\merged\\debug\\values-v14_values-v14.arsc.flat",
             "map": [
                 {
-                    "source": "F:\\School\\FINAL- ForSE470\\app\\src\\main\\res\\values-v11\\styles.xml",
+                    "source": "F:\\School\\FINAL-ForSE470\\app\\src\\main\\res\\values-v14\\styles.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
                         "startOffsets": "19",
-                        "endColumns": "63",
-                        "endOffsets": "78"
+                        "endColumns": "77",
+                        "endOffsets": "92"
                     },
                     "to": {
                         "startLines": "2",
                         "startColumns": "4",
                         "startOffsets": "55",
-                        "endColumns": "62",
-                        "endOffsets": "113"
+                        "endColumns": "76",
+                        "endOffsets": "127"
                     }
                 }
             ]
         },
         {
-            "outputFile": "F:\\School\\FINAL- ForSE470\\app\\build\\intermediates\\res\\merged\\debug\\values_values.arsc.flat",
+            "outputFile": "F:\\School\\FINAL-ForSE470\\app\\build\\intermediates\\res\\merged\\debug\\values_values.arsc.flat",
             "map": [
                 {
-                    "source": "F:\\School\\FINAL- ForSE470\\app\\src\\main\\res\\values\\strings.xml",
+                    "source": "F:\\School\\FINAL-ForSE470\\app\\src\\main\\res\\values\\styles.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "19",
+                        "endColumns": "58",
+                        "endOffsets": "73"
+                    },
+                    "to": {
+                        "startLines": "31",
+                        "startColumns": "4",
+                        "startOffsets": "1664",
+                        "endColumns": "57",
+                        "endOffsets": "1717"
+                    }
+                },
+                {
+                    "source": "F:\\School\\FINAL-ForSE470\\app\\src\\main\\res\\values\\strings.xml",
                     "from": {
                         "startLines": "2,11,8,16,12,18,7,13,20,22,19,21,10,9,3,31,32,30,4,27,28,24,15,25,5,14",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -43,44 +60,27 @@
                         "endColumns": "43,53,63,59,59,58,69,62,61,58,51,51,37,44,52,69,68,49,50,45,63,49,46,47,65,45",
                         "endOffsets": "94,148,212,272,332,391,461,524,586,645,697,749,787,832,885,955,1191,1241,1292,1338,1402,1452,1499,1547,1613,1659"
                     }
-                },
-                {
-                    "source": "F:\\School\\FINAL- ForSE470\\app\\src\\main\\res\\values\\styles.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "19",
-                        "endColumns": "58",
-                        "endOffsets": "73"
-                    },
-                    "to": {
-                        "startLines": "31",
-                        "startColumns": "4",
-                        "startOffsets": "1664",
-                        "endColumns": "57",
-                        "endOffsets": "1717"
-                    }
                 }
             ]
         },
         {
-            "outputFile": "F:\\School\\FINAL- ForSE470\\app\\build\\intermediates\\res\\merged\\debug\\values-v14_values-v14.arsc.flat",
+            "outputFile": "F:\\School\\FINAL-ForSE470\\app\\build\\intermediates\\res\\merged\\debug\\values-v11_values-v11.arsc.flat",
             "map": [
                 {
-                    "source": "F:\\School\\FINAL- ForSE470\\app\\src\\main\\res\\values-v14\\styles.xml",
+                    "source": "F:\\School\\FINAL-ForSE470\\app\\src\\main\\res\\values-v11\\styles.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
                         "startOffsets": "19",
-                        "endColumns": "77",
-                        "endOffsets": "92"
+                        "endColumns": "63",
+                        "endOffsets": "78"
                     },
                     "to": {
                         "startLines": "2",
                         "startColumns": "4",
                         "startOffsets": "55",
-                        "endColumns": "76",
-                        "endOffsets": "127"
+                        "endColumns": "62",
+                        "endOffsets": "113"
                     }
                 }
             ]
