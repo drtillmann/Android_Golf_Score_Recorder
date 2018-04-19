@@ -28,7 +28,7 @@ public class enterDataTest15 {
     }
 
     @Test
-    public void isDigitTestPass() {
+    public void isDigitTest() {
         String input = "5";
         boolean result,  expected = true;
 
@@ -38,7 +38,7 @@ public class enterDataTest15 {
     }
 
     @Test
-    public void convertToIntTestPass() {
+    public void convertToIntTest() {
         String input = "5";
         int result, expected = 5;
 

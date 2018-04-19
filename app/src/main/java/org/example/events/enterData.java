@@ -25,7 +25,6 @@ public class enterData extends Activity implements OnClickListener {
 	private EditText score;
 	private EditText player;
 
-
 	
 	private EventsData events;
 
@@ -52,12 +51,29 @@ public class enterData extends Activity implements OnClickListener {
 		score = (EditText)findViewById(R.id.score);
 		player = (EditText)findViewById(R.id.player);
 
+
+
         String name = course.getText().toString(), putt = putts.getText().toString(), penalty = pennalties.getText().toString(),
                 myScore = score.getText().toString(), pName = player.getText().toString();
 		switch (v.getId()){
 			case R.id.enter_data_form:
 				checkMusic();
-				checkInput(name, putt, penalty, myScore, pName);
+				boolean valid = checkInput(name, putt, penalty, myScore, pName);
+				if(valid){
+					try{
+
+						addEvent(course.getText().toString(), putts.getText().toString(),pennalties.getText().toString(),
+								score.getText().toString(), player.getText().toString() );
+
+						CharSequence text = "Information Saved!";
+						Context context = getApplicationContext();
+						Toast toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
+						toast.show();
+
+					}catch(Exception e){
+						e.printStackTrace();
+					}
+				}
 				break;
 			case R.id.exit_button_form:
 				checkMusic();
@@ -69,8 +85,6 @@ public class enterData extends Activity implements OnClickListener {
 
 	public boolean checkInput(String courseName, String myPutts, String myPennalties, String myScore, String playerName ){
 		events = new EventsData(this);
-	    boolean inserted = false;
-		Context context = getApplicationContext();
 
 
 		if(courseName.isEmpty() || myPutts.isEmpty() || myPennalties.isEmpty() || myScore.isEmpty() || playerName.isEmpty() ||
@@ -80,25 +94,14 @@ public class enterData extends Activity implements OnClickListener {
 				!(convertToInt(myScore) > 0 && convertToInt(myScore) < 150)){
 
 			CharSequence text = "All Fields Must Contain Valid Information.";
+			Context context = getApplicationContext();
 			Toast toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
 			toast.show();
 
-		}else {
-			try{
-
-				addEvent(course.getText().toString(), putts.getText().toString(),pennalties.getText().toString(),
-						score.getText().toString(), player.getText().toString() );
-				inserted = true;
-				CharSequence text = "Information Saved!";
-				Toast toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
-				toast.show();
-
-			}catch(Exception e){
-				e.printStackTrace();
-			}
+			return false;
 		}
 		events.close();
-		return inserted;
+		return true;
 
 	}
 	
