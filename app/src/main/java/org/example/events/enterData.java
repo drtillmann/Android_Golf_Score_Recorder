@@ -7,6 +7,7 @@ import static org.example.events.Constants.PENNALTIES;
 import static org.example.events.Constants.SCORE;
 import static org.example.events.Constants.PLAYER;
 import android.app.Activity;
+import android.database.SQLException;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -26,7 +27,8 @@ public class enterData extends Activity implements OnClickListener {
 	private EditText player;
 
 	
-	private EventsData events;
+	private EventsData events = new EventsData(this);
+	private SQLiteDatabase db;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
@@ -51,19 +53,18 @@ public class enterData extends Activity implements OnClickListener {
 		score = (EditText)findViewById(R.id.score);
 		player = (EditText)findViewById(R.id.player);
 
-
-
-        String name = course.getText().toString(), putt = putts.getText().toString(), penalty = pennalties.getText().toString(),
+		String name = course.getText().toString(), putt = putts.getText().toString(), penalty = pennalties.getText().toString(),
                 myScore = score.getText().toString(), pName = player.getText().toString();
-		switch (v.getId()){
+
+
+        switch (v.getId()){
 			case R.id.enter_data_form:
 				checkMusic();
 				boolean valid = checkInput(name, putt, penalty, myScore, pName);
 				if(valid){
 					try{
 
-						addEvent(course.getText().toString(), putts.getText().toString(),pennalties.getText().toString(),
-								score.getText().toString(), player.getText().toString() );
+						addEvent(name, putt, penalty,myScore, pName);
 
 						CharSequence text = "Information Saved!";
 						Context context = getApplicationContext();
@@ -73,6 +74,8 @@ public class enterData extends Activity implements OnClickListener {
 					}catch(Exception e){
 						e.printStackTrace();
 					}
+					events.close();
+					db.close();
 				}
 				break;
 			case R.id.exit_button_form:
@@ -84,37 +87,48 @@ public class enterData extends Activity implements OnClickListener {
 	}
 
 	public boolean checkInput(String courseName, String myPutts, String myPennalties, String myScore, String playerName ){
-		events = new EventsData(this);
-
 
 		if(courseName.isEmpty() || myPutts.isEmpty() || myPennalties.isEmpty() || myScore.isEmpty() || playerName.isEmpty() ||
 				!isDigit(myPutts) || !isDigit(myPennalties) || !isDigit(myScore) || myPutts.contains(".") || myPennalties.contains(".") || myScore.contains(".") ||
 				!(convertToInt(myPutts) > 0 && convertToInt(myPutts) < 100) ||
 				!(convertToInt(myPennalties) >= 0 && convertToInt(myPennalties) < 50) ||
-				!(convertToInt(myScore) > 0 && convertToInt(myScore) < 150)){
-
-			CharSequence text = "All Fields Must Contain Valid Information.";
-			Context context = getApplicationContext();
-			Toast toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
-			toast.show();
-
+				!(convertToInt(myScore) > 0 && convertToInt(myScore) < 150))
+		{
 			return false;
 		}
-		events.close();
 		return true;
-
 	}
 	
-	private void addEvent(String c, String pu, String pe, String s, String player){
-    	SQLiteDatabase db = events.getWritableDatabase();
-    	ContentValues values = new ContentValues();
-    	values.put(COURSE, c);
-    	values.put(PUTTS, pu);
-    	values.put(PENNALTIES, pe);
-    	values.put(SCORE, s);
-    	values.put(PLAYER, player);
-    	db.insertOrThrow(TABLE_NAME, null, values);
+	public void addEvent(String c, String pu, String pe, String s, String player){
+    	connectSQLiteTable();
+		insertRecords(c, pu, pe, s, player);
     }
+
+    public boolean connectSQLiteTable(){
+		try {
+			db = events.getWritableDatabase();
+		}catch(SQLException sqlE){
+			Log.d("SQLite error", sqlE.toString());
+			return false;
+		}
+		return true;
+	}
+
+	public boolean insertRecords(String cN, String putt, String penn, String score, String playerName){
+		ContentValues values = new ContentValues();
+		values.put(COURSE, cN);
+		values.put(PUTTS, putt);
+		values.put(PENNALTIES, penn);
+		values.put(SCORE, score);
+		values.put(PLAYER, playerName);
+		try {
+			db.insertOrThrow(TABLE_NAME, null, values);
+		}catch(SQLException sqlE){
+			Log.d("SQL Insert Error", sqlE.toString());
+			return false;
+		}
+		return true;
+	}
 
     public boolean isDigit(String str){
 		try{
