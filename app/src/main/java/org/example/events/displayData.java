@@ -4,7 +4,7 @@ import static android.provider.BaseColumns._ID;
 import static org.example.events.Constants.TABLE_NAME;
 import static org.example.events.Constants.COURSE;
 import static org.example.events.Constants.PUTTS;
-import static org.example.events.Constants.PENNALTIES;
+import static org.example.events.Constants.PENALTIES;
 import static org.example.events.Constants.SCORE;
 import static org.example.events.Constants.PLAYER;
 import android.app.Activity;
@@ -16,34 +16,33 @@ import android.database.sqlite.SQLiteDatabase;
 public class displayData extends Activity {
 	
 	private EventsData events;
+	private static String[] FROM = {COURSE, PUTTS, PENALTIES, SCORE, PLAYER };
+	private static String ORDER_BY = COURSE + " DESC";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.display_data);
-		
 		events = new EventsData(this);
+
         try{
         	
         	Cursor cursor = getEvents();
         	
-        		showEvents(cursor);
+        	showEvents(cursor);
         	
         }finally{
         	events.close();
         }
 	}
-	
-    private static String[] FROM = {COURSE, PUTTS, PENNALTIES, SCORE, PLAYER };
-    private static String ORDER_BY = SCORE + " DESC";
-   
+
     private Cursor getEvents(){
     	SQLiteDatabase db = events.getReadableDatabase();
     	Cursor cursor = db.query(TABLE_NAME, FROM, null, null, null, null, ORDER_BY);
     	startManagingCursor(cursor);
     	return cursor;
     }
-    //private static int[] TO = {R.id.rowid, R.id.time, R.id.title};
+
     
     private void showEvents(Cursor cursor){
     	/**SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, R.layout.item, cursor, FROM, TO);
@@ -65,13 +64,13 @@ public class displayData extends Activity {
     		builder.append(pennalties).append(" | ");
     		builder.append(score).append(" | ");
     		builder.append(player);
-    		builder.append("\n");
+    		builder.append(System.getProperty("line.separator"));
     	}
     	TextView info_bar = (TextView)findViewById(R.id.info_bar);
     	TextView text = (TextView)findViewById(R.id.text);
     	
     	if(builder != null){
-    	info_bar.setText("Course Name | Putts | Pennalties | Score | Player");
+    	info_bar.setText("Course Name | Putts | Penalties | Score | Player");
     	text.setText(builder);
     	}else{
     		text.setText("No Golf Managment Information");

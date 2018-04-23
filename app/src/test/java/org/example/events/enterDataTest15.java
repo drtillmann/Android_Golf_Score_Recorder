@@ -1,5 +1,6 @@
 package org.example.events;
 
+import android.content.Context;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.test.suitebuilder.annotation.LargeTest;
@@ -13,7 +14,7 @@ public class enterDataTest15 {
     private enterData enter = new enterData();
     private SQLiteDatabase db;
 
-    @Test
+  /*  @Test
     public void onCreate() {
     }
 
@@ -21,7 +22,7 @@ public class enterDataTest15 {
     public void onClick() {
 
     }
-
+*/
     @Test
     public void checkInputTestPass(){
 
@@ -29,15 +30,18 @@ public class enterDataTest15 {
         boolean result, expected = true;
 
         result = enter.checkInput(courseName, numPutts, numPenalties, numScore, playerName);
+
         assertEquals(expected, result);
     }
 
     @Test
     public void checkInputTestFailPuttBelowZero(){
+
         String courseName = "White Eagle", numPutts = "-1", numPenalties = "5", numScore = "75", playerName = "John Smith";
         boolean result, expected = false;
 
         result = enter.checkInput(courseName, numPutts, numPenalties, numScore, playerName);
+
         assertEquals(expected, result);
     }
 
@@ -108,17 +112,17 @@ public class enterDataTest15 {
     public void createSQLiteCreateTable(){
         boolean result, expected = true;
 
-        result = enter.createSQLiteTable();
+        result = enter.connectSQLiteTable();
         assertEquals(expected, result);
     }
 
-    @Test
+   @Test
     public void testRecordInsertion() throws SQLException{
         String courseName = "White Eagle", numPutts = "28", numPenalties = "5", numScore = "76", playerName = "John Smith";
         boolean result = true, expected = true;
 
         try {
-            enter.createSQLiteTable();
+            enter.connectSQLiteTable();
             result = enter.insertRecords(courseName, numPutts, numPenalties, numScore, playerName);
         }catch(SQLException sqlE){
             result = false;

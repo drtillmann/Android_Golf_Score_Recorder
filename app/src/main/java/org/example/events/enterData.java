@@ -3,7 +3,7 @@ package org.example.events;
 import static org.example.events.Constants.TABLE_NAME;
 import static org.example.events.Constants.COURSE;
 import static org.example.events.Constants.PUTTS;
-import static org.example.events.Constants.PENNALTIES;
+import static org.example.events.Constants.PENALTIES;
 import static org.example.events.Constants.SCORE;
 import static org.example.events.Constants.PLAYER;
 import android.app.Activity;
@@ -90,13 +90,15 @@ public class enterData extends Activity implements OnClickListener {
 
 		if(courseName.isEmpty() || myPutts.isEmpty() || myPennalties.isEmpty() || myScore.isEmpty() || playerName.isEmpty() ||
 				!isDigit(myPutts) || !isDigit(myPennalties) || !isDigit(myScore) || myPutts.contains(".") || myPennalties.contains(".") || myScore.contains(".") ||
-				!(convertToInt(myPutts) > 0 && convertToInt(myPutts) < 100) ||
+				!(convertToInt(myPutts) >= 0 && convertToInt(myPutts) < 100) ||
 				!(convertToInt(myPennalties) >= 0 && convertToInt(myPennalties) < 50) ||
-				!(convertToInt(myScore) > 0 && convertToInt(myScore) < 150))
+				!(convertToInt(myScore) > 53 && convertToInt(myScore) < 150))
 		{
 			return false;
+		}else {
+			return true;
+
 		}
-		return true;
 	}
 	
 	public void addEvent(String c, String pu, String pe, String s, String player){
@@ -118,7 +120,7 @@ public class enterData extends Activity implements OnClickListener {
 		ContentValues values = new ContentValues();
 		values.put(COURSE, cN);
 		values.put(PUTTS, putt);
-		values.put(PENNALTIES, penn);
+		values.put(PENALTIES, penn);
 		values.put(SCORE, score);
 		values.put(PLAYER, playerName);
 		try {
@@ -144,9 +146,11 @@ public class enterData extends Activity implements OnClickListener {
 		int i = 0;
 		try{
 			i = Integer.parseInt(str);
-		}catch(NumberFormatException nfe){
 
+		}catch(NumberFormatException nfe){
+			return -1;
 		}
+
 		return i;
 	}
 
@@ -155,8 +159,7 @@ public class enterData extends Activity implements OnClickListener {
 			if(this.isFinishing()){
 				MainActivity.mp.stop();
 			}
-		}
-		if(MainActivity.mp != null){
+		}else /*if(MainActivity.mp != null)*/{
 			if(this.isFinishing()){
 				MainActivity.mp.stop();
 			}

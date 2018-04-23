@@ -3,7 +3,7 @@ package org.example.events;
 import static org.example.events.Constants.TABLE_NAME;
 import static org.example.events.Constants.COURSE;
 import static org.example.events.Constants.PUTTS;
-import static org.example.events.Constants.PENNALTIES;
+import static org.example.events.Constants.PENALTIES;
 import static org.example.events.Constants.SCORE;
 import static org.example.events.Constants.PLAYER;
 import android.content.Context;
@@ -24,7 +24,7 @@ public class EventsData extends SQLiteOpenHelper {
 		String s = "CREATE TABLE " + TABLE_NAME + " (" 
 				+ COURSE + " TEXT NOT NULL, " 
 				+ PUTTS + " TEXT NOT NULL, "
-				+ PENNALTIES + " TEXT NOT NULL, "
+				+ PENALTIES + " TEXT NOT NULL, "
 				+ SCORE + " TEXT NOT NULL, " 
 				+ PLAYER + " TEXT NOT NULL);";
 		
