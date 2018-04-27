@@ -25,6 +25,7 @@ public class enterData extends Activity implements OnClickListener {
 	private EditText pennalties;
 	private EditText score;
 	private EditText player;
+	//private Context context = getApplicationContext();
 
 	
 	private EventsData events = new EventsData(this);
@@ -66,11 +67,6 @@ public class enterData extends Activity implements OnClickListener {
 
 						addEvent(name, putt, penalty,myScore, pName);
 
-						CharSequence text = "Information Saved!";
-						Context context = getApplicationContext();
-						Toast toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
-						toast.show();
-
 					}catch(Exception e){
 						e.printStackTrace();
 					}
@@ -87,6 +83,9 @@ public class enterData extends Activity implements OnClickListener {
 	}
 
 	public boolean checkInput(String courseName, String myPutts, String myPennalties, String myScore, String playerName ){
+        Context context = getApplicationContext();
+	    CharSequence invalid = "Invalid Information Entered", valid = "Information Saved";
+        Toast invalidToast, validToast;
 
 		if(courseName.isEmpty() || myPutts.isEmpty() || myPennalties.isEmpty() || myScore.isEmpty() || playerName.isEmpty() ||
 				!isDigit(myPutts) || !isDigit(myPennalties) || !isDigit(myScore) || myPutts.contains(".") || myPennalties.contains(".") || myScore.contains(".") ||
@@ -94,8 +93,14 @@ public class enterData extends Activity implements OnClickListener {
 				!(convertToInt(myPennalties) >= 0 && convertToInt(myPennalties) < 50) ||
 				!(convertToInt(myScore) > 53 && convertToInt(myScore) < 150))
 		{
+            invalidToast = Toast.makeText(context, invalid, Toast.LENGTH_LONG);
+            invalidToast.show();
+
 			return false;
 		}else {
+
+		    validToast = Toast.makeText(context, valid, Toast.LENGTH_LONG);
+		    validToast.show();
 			return true;
 
 		}
